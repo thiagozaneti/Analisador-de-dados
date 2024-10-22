@@ -1,4 +1,4 @@
-import tkinter as tk
+import tkinter as ttk
 
 def create_select_button(parent, nome, descricao, frequencia, amostras, atualizar_detalhes):
     """
@@ -11,4 +11,4 @@ def create_select_button(parent, nome, descricao, frequencia, amostras, atualiza
     :param amostras: O n mero de amostras da máquina
     :param atualizar_detalhes: A fun o para atualizar as informa es de detalhes
     """
-    return tk.Button(parent, text="Selecionar", command=lambda: atualizar_detalhes(nome, descricao, frequencia, amostras))  # Usando BootstrapButton
+    return ttk.Button(parent, text="Selecionar", command=lambda: atualizar_detalhes(nome, descricao, frequencia, amostras))  # Usando BootstrapButton
