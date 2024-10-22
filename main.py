@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk, messagebox 
+from tkinter import tk, messagebox 
 import tkinter.font as tkfont
 from logic.file_handler import carregar_arquivo
 from logic.csv_save import salvar_dados_csv
@@ -9,7 +9,6 @@ from uldaq import (get_daq_device_inventory, DaqDevice, AInScanFlag,
 import threading
 import time
 from datetime import datetime
-from ttkbootstrap import Bootstrap  # Importando Bootstrap
 
 # Variáveis globais
 selected_machine = None
@@ -18,10 +17,10 @@ daq_device = None
 ai_device = None
 
 def main():
-    root = Bootstrap()  # Usando Bootstrap em vez de tk.Tk()
+    root = tk.Tk()  # Usando Bootstrap em vez de tk.Tk()
     root.title("Analisador de Dados de Vibração")
     root.geometry("800x600")
-    style = ttk.Style()
+    style = tk.Style()
     style.theme_use("flatly")  # Alterando o tema para um tema do Bootstrap
 
     # Configurar o grid
@@ -29,21 +28,21 @@ def main():
     root.grid_rowconfigure(1, weight=1)
 
     # Frame para botões de controle
-    control_frame = ttk.Frame(root)
+    control_frame = tk.Frame(root)
     control_frame.grid(row=0, column=0, sticky="ew", padx=10, pady=10)
 
     # Botão para carregar arquivo de configuração
-    btn_carregar = ttk.Button(control_frame, text="Carregar Configurações", 
+    btn_carregar = tk.Button(control_frame, text="Carregar Configurações", 
                               command=lambda: carregar_arquivo(content_frame, selecionar_maquina))
     btn_carregar.pack(side="left", padx=5)
 
     # Botão para iniciar/parar a aquisição de dados
-    btn_aquisicao = ttk.Button(control_frame, text="Iniciar Aquisição", 
+    btn_aquisicao = tk.Button(control_frame, text="Iniciar Aquisição", 
                                command=lambda: toggle_aquisicao(btn_aquisicao))
     btn_aquisicao.pack(side="left", padx=5)
 
     # Frame para conteúdo (lista de máquinas e detalhes)
-    content_frame = ttk.Frame(root)
+    content_frame = tk.Frame(root)
     content_frame.grid(row=1, column=0, sticky="nsew", padx=10, pady=10)
 
     # Criar duas colunas no content_frame
